@@ -53257,7 +53257,7 @@ module.exports = /*#__PURE__*/JSON.parse('[{"value":"","label":" - "},{"value":"
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[48,54]}');
+module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[66]}');
 
 /***/ })
 
@@ -53365,7 +53365,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[48,54]}');
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("4c7a89b156c39eaa1144")
+/******/ 		__webpack_require__.h = () => ("6b58f52cc6732a2b8b20")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
