@@ -129,6 +129,11 @@ const ChallengeTable = () => {
   const [notification, setNotification] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""); // State for notification
 
   const hardChallenges = _data_hardChallenges_json__WEBPACK_IMPORTED_MODULE_3__.hardChallenges;
+  const isMobile = window.innerWidth <= 768;
+  const [visibleTooltip, setVisibleTooltip] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const handleTooltipToggle = challengeNumber => {
+    setVisibleTooltip(prev => prev === challengeNumber ? null : challengeNumber);
+  };
 
   // Function to check if a challenge is "hard"
   const isHardChallenge = challengeNumber => {
@@ -245,12 +250,12 @@ const ChallengeTable = () => {
           d: "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.32-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.63.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 173,
+          lineNumber: 182,
           columnNumber: 11
         }, undefined)
       }, `full-${i}`, false, {
         fileName: _jsxFileName,
-        lineNumber: 165,
+        lineNumber: 174,
         columnNumber: 9
       }, undefined));
     }
@@ -268,19 +273,19 @@ const ChallengeTable = () => {
           d: "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.32-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0v11.555L3.612 15.443z"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 190,
+          lineNumber: 199,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
           d: "M8 12.347V0c.197.39.73.39.927 0l2.184 4.327 4.898.696c.441.062.612.63.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 12.347z",
           fill: "#343a40" // Dark color for empty half
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 193,
+          lineNumber: 202,
           columnNumber: 11
         }, undefined)]
       }, "half", true, {
         fileName: _jsxFileName,
-        lineNumber: 181,
+        lineNumber: 190,
         columnNumber: 9
       }, undefined));
     }
@@ -367,9 +372,9 @@ const ChallengeTable = () => {
   const getTooltipText = challengeNumber => {
     const isKeyChallenge = keyChallengeNumbers.includes(challengeNumber);
     const isHard = isHardChallenge(challengeNumber);
-    return isKeyChallenge && isHard ? "HARD KEY CHALLENGE" // Purple challenges
+    return isKeyChallenge && isHard ? "HARD CHECKPOINT CHALLENGE" // Purple challenges
     : isHard ? "HARD CHALLENGE" // Red challenges
-    : isKeyChallenge ? "KEY CHALLENGE" // Blue challenges
+    : isKeyChallenge ? "CHECKPOINT CHALLENGE" // Blue challenges
     : ""; // Default for others
   };
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
@@ -387,7 +392,7 @@ const ChallengeTable = () => {
         `
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 309,
+      lineNumber: 318,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("a", {
       href: "https://www.reddit.com/user/PiFbg",
@@ -402,7 +407,7 @@ const ChallengeTable = () => {
       children: "Created by u/PiFbg"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 320,
+      lineNumber: 329,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("a", {
       href: "https://www.buymeacoffee.com/pifbg",
@@ -419,14 +424,14 @@ const ChallengeTable = () => {
       children: "Buy me a coffee"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 335,
+      lineNumber: 344,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("h2", {
       className: "mb-4 text-center text-light",
       children: "PiF's Monthly Challenges Assistant | November 2024"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 356,
+      lineNumber: 365,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "mb-4 d-flex justify-content-end",
@@ -439,19 +444,19 @@ const ChallengeTable = () => {
           onChange: () => setShowCounters(!showCounters)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 363,
+          lineNumber: 372,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label",
           children: "Suggestions"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 369,
+          lineNumber: 378,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 362,
+        lineNumber: 371,
         columnNumber: 9
       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
         className: "form-check form-switch d-inline-flex align-items-center ms-4",
@@ -462,19 +467,19 @@ const ChallengeTable = () => {
           onChange: () => setShowTips(!showTips)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 376,
+          lineNumber: 385,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label-blue",
           children: "Info | Notes"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 382,
+          lineNumber: 391,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 375,
+        lineNumber: 384,
         columnNumber: 9
       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
         className: "form-check form-switch d-inline-flex align-items-center ms-4",
@@ -485,24 +490,24 @@ const ChallengeTable = () => {
           onChange: () => setShowChampNumber(!showChampNumber)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 389,
+          lineNumber: 398,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label-white",
           children: "Champion Uses"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 395,
+          lineNumber: 404,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 388,
+        lineNumber: 397,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 361,
+      lineNumber: 370,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "search-bar-container mb-4",
@@ -513,12 +518,12 @@ const ChallengeTable = () => {
         onChange: handleSearch // Updated to use handleSearch
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 403,
+        lineNumber: 412,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 402,
+      lineNumber: 411,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "table-responsive",
@@ -540,56 +545,56 @@ const ChallengeTable = () => {
               children: ["# ", isReversed ? "▼" : "▲"]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 418,
+              lineNumber: 427,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center star-column",
               children: "Stars"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 425,
+              lineNumber: 434,
               columnNumber: 15
             }, undefined), " ", /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mid-Boss"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 427,
+              lineNumber: 436,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Final Boss"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 428,
+              lineNumber: 437,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 1"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 429,
+              lineNumber: 438,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 2"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 430,
+              lineNumber: 439,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 3"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 431,
+              lineNumber: 440,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 4"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 432,
+              lineNumber: 441,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
@@ -609,7 +614,7 @@ const ChallengeTable = () => {
                   children: "Clear Picks"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 442,
+                  lineNumber: 451,
                   columnNumber: 19
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
                   style: {
@@ -622,7 +627,7 @@ const ChallengeTable = () => {
                     children: "My Champion"
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 457,
+                    lineNumber: 466,
                     columnNumber: 21
                   }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("button", {
                     className: "btn btn-sm btn-dark",
@@ -644,87 +649,96 @@ const ChallengeTable = () => {
                         d: "M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.6a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.6a.5.5 0 0 1 .5-.5z"
                       }, void 0, false, {
                         fileName: _jsxFileName,
-                        lineNumber: 474,
+                        lineNumber: 483,
                         columnNumber: 25
                       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                         d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
                       }, void 0, false, {
                         fileName: _jsxFileName,
-                        lineNumber: 475,
+                        lineNumber: 484,
                         columnNumber: 25
                       }, undefined)]
                     }, void 0, true, {
                       fileName: _jsxFileName,
-                      lineNumber: 466,
+                      lineNumber: 475,
                       columnNumber: 23
                     }, undefined)
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 460,
+                    lineNumber: 469,
                     columnNumber: 21
                   }, undefined)]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 450,
+                  lineNumber: 459,
                   columnNumber: 19
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 434,
+                lineNumber: 443,
                 columnNumber: 17
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 433,
+              lineNumber: 442,
               columnNumber: 15
             }, undefined)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 417,
+            lineNumber: 426,
             columnNumber: 13
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 416,
+          lineNumber: 425,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tbody", {
           children: filteredChallenges.map((challenge, index) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               className: "text-center",
-              title: getTooltipText(challenge.number) // Apply tooltip
+              onClick: () => handleTooltipToggle(challenge.number) // Toggle tooltip on click
               ,
-              children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
+              title: !isMobile ? getTooltipText(challenge.number) : "" // Show title only on desktop
+              ,
+              children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                 style: {
                   color: getTextColor(challenge.number)
                 },
                 children: challenge.number
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 490,
+                lineNumber: 500,
                 columnNumber: 19
-              }, undefined)
-            }, void 0, false, {
+              }, undefined), visibleTooltip === challenge.number && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
+                className: "mobile-tooltip",
+                children: getTooltipText(challenge.number)
+              }, void 0, false, {
+                fileName: _jsxFileName,
+                lineNumber: 505,
+                columnNumber: 21
+              }, undefined)]
+            }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 486,
+              lineNumber: 495,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               className: "star-column",
               children: renderStars(challenge.difficulty)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 494,
+              lineNumber: 510,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: challenge.midBoss && challenge.midBoss.name ? challenge.midBoss.name : ""
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 497,
+              lineNumber: 513,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: challenge.boss ? challenge.boss.name : ""
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 502,
+              lineNumber: 518,
               columnNumber: 17
             }, undefined), challenge.mutators.map((mutator, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: [showTips && mutator.notes && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("svg", {
@@ -742,28 +756,28 @@ const ChallengeTable = () => {
                   children: [mutator.notes, " "]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 518,
+                  lineNumber: 534,
                   columnNumber: 25
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                   d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 519,
+                  lineNumber: 535,
                   columnNumber: 25
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                   d: "m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 520,
+                  lineNumber: 536,
                   columnNumber: 25
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 506,
+                lineNumber: 522,
                 columnNumber: 23
               }, undefined), showTips && mutator.notes && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 524,
+                lineNumber: 540,
                 columnNumber: 51
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("strong", {
                 className: "mutator-name",
@@ -774,40 +788,40 @@ const ChallengeTable = () => {
                 children: mutator.name
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 525,
+                lineNumber: 541,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 532,
+                lineNumber: 548,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                 className: "mutator-description",
                 children: mutator.description
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 533,
+                lineNumber: 549,
                 columnNumber: 21
               }, undefined), showCounters && mutator.counters && mutator.counters.length > 0 && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                 children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 540,
+                  lineNumber: 556,
                   columnNumber: 27
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                   className: "mutator-counters",
                   children: ["[ ", mutator.counters.join(", "), " ]"]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 541,
+                  lineNumber: 557,
                   columnNumber: 27
                 }, undefined)]
               }, void 0, true)]
             }, idx, true, {
               fileName: _jsxFileName,
-              lineNumber: 504,
+              lineNumber: 520,
               columnNumber: 19
             }, undefined)), [...Array(4 - challenge.mutators.length)].map((_, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {}, `empty-${idx}`, false, {
               fileName: _jsxFileName,
-              lineNumber: 549,
+              lineNumber: 565,
               columnNumber: 19
             }, undefined)), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               style: {
@@ -842,12 +856,12 @@ const ChallengeTable = () => {
                     })
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 562,
+                    lineNumber: 578,
                     columnNumber: 23
                   }, undefined)
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 561,
+                  lineNumber: 577,
                   columnNumber: 21
                 }, undefined), showChampNumber && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
                   style: {
@@ -859,37 +873,37 @@ const ChallengeTable = () => {
                   children: champions[challenge.number] && championCounts[champions[challenge.number]] ? championCounts[champions[challenge.number]] : 0
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 590,
+                  lineNumber: 606,
                   columnNumber: 23
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 552,
+                lineNumber: 568,
                 columnNumber: 19
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 551,
+              lineNumber: 567,
               columnNumber: 17
             }, undefined)]
           }, index, true, {
             fileName: _jsxFileName,
-            lineNumber: 485,
+            lineNumber: 494,
             columnNumber: 15
           }, undefined))
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 483,
+          lineNumber: 492,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 412,
+        lineNumber: 421,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 411,
+      lineNumber: 420,
       columnNumber: 7
     }, undefined), notification && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "alert alert-success" // Keep the Bootstrap alert class for the same style
@@ -903,16 +917,16 @@ const ChallengeTable = () => {
       children: notification
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 615,
+      lineNumber: 631,
       columnNumber: 9
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 305,
+    lineNumber: 314,
     columnNumber: 5
   }, undefined);
 };
-_s2(ChallengeTable, "IxZ0l6gAYHwjjZpKZ9Y4KE2HFBY=", false, function () {
+_s2(ChallengeTable, "fCz8dXEzMheXj983tCzVqr5LA7w=", false, function () {
   return [useDebounce];
 });
 _c = ChallengeTable;
@@ -47140,7 +47154,19 @@ td {
   word-wrap: break-word; /* Ensure long words break */
   text-align: center; /* Center-align the text */
 }
-`, "",{"version":3,"sources":["webpack://./src/components/ChallengeTable.css"],"names":[],"mappings":"AAAA,kCAAkC;AAClC;EACE,gBAAgB,EAAE,sCAAsC;EACxD,iBAAiB;AACnB;;AAEA,0CAA0C;AAC1C;EACE,gBAAgB,EAAE,8CAA8C;EAChE,WAAW,EAAE,oDAAoD;AACnE;;AAEA,WAAW;AACX;EACE,sBAAsB;EACtB,MAAM;EACN,WAAW,EAAE,gDAAgD;EAC7D,yBAAyB,EAAE,mCAAmC;EAC9D,YAAY,EAAE,8BAA8B;AAC9C;;AAEA,mBAAmB;AACnB;EACE,iBAAiB;EACjB,gBAAgB,EAAE,2CAA2C;AAC/D;;AAEA,uBAAuB;AACvB;EACE,oCAAoC,EAAE,yBAAyB;EAC/D,yBAAyB,EAAE,0BAA0B;EACrD,iBAAiB,EAAE,6DAA6D;AAClF;;AAEA;EACE,gBAAgB;EAChB,MAAM;EACN,aAAa,EAAE,sCAAsC;EACrD,yBAAyB;EACzB,aAAa;AACf;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,qBAAqB,EAAE,2CAA2C;AACpE;AACA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,gBAAgB,EAAE,0CAA0C;EAC5D,eAAe,EAAE,0BAA0B;AAC7C;;AAEA,gDAAgD;AAChD;EACE,qDAAqD;AACvD;;AAEA,gEAAgE;AAChE;EACE,qBAAqB,EAAE,gDAAgD;AACzE;;AAEA,mDAAmD;AACnD;EACE,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,8BAA8B;EAC9B,YAAY,EAAE,+CAA+C;AAC/D;;AAEA,yDAAyD;AACzD;EACE,kBAAkB;AACpB;;AAEA,iCAAiC;AACjC;EACE,gBAAgB;AAClB;;AAEA,uBAAuB;AACvB;EACE,mBAAmB,EAAE,0CAA0C;AACjE;;AAEA;EACE,WAAW,EAAE,oDAAoD;EACjE,kBAAkB,EAAE,uBAAuB;AAC7C;;AAEA;EACE,aAAa,EAAE,oCAAoC;AACrD;;AAEA;EACE,mBAAmB,EAAE,uBAAuB;EAC5C,qBAAqB,EAAE,4BAA4B;EACnD,kBAAkB,EAAE,0BAA0B;AAChD","sourcesContent":["/* Mutator name should be larger */\r\n.mutator-name {\r\n  font-size: 1.2em; /* Larger font size for mutator name */\r\n  font-weight: bold;\r\n}\r\n\r\n/* Mutator description should be smaller */\r\n.mutator-description {\r\n  font-size: 0.9em; /* Smaller font size for mutator description */\r\n  color: #bbb; /* Optional: make the description slightly lighter */\r\n}\r\n\r\n/* Header */\r\nthead th {\r\n  /* position: sticky; */\r\n  top: 0;\r\n  z-index: 10; /* Ensure the header stays above table content */\r\n  background-color: #343a40; /* Dark background for the header */\r\n  color: white; /* White text for visibility */\r\n}\r\n\r\n/* General styles */\r\n.bi {\r\n  margin-right: 2px;\r\n  font-size: 1.2em; /* Adjust the size of the stars if needed */\r\n}\r\n\r\n/* Dark mode for body */\r\nbody {\r\n  background-color: #121212 !important; /* Dark gray background */\r\n  color: #e0e0e0 !important; /* Light gray text color */\r\n  min-height: 100vh; /* Ensure the body takes up the full height of the viewport */\r\n}\r\n\r\n.search-bar-container {\r\n  position: sticky;\r\n  top: 0;\r\n  z-index: 1000; /* Ensures it's above other elements */\r\n  background-color: #212529;\r\n  padding: 10px;\r\n}\r\n\r\n.mutator-counters {\r\n  font-size: 0.9em;\r\n  font-style: bold;\r\n  color: #97dbad;\r\n}\r\n\r\n.custom-checkbox {\r\n  transform: scale(1.5); /* Adjust the scale for bigger checkboxes */\r\n}\r\n.custom-checkbox-label {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #97dbad;\r\n}\r\n\r\n.custom-checkbox-label-white {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #ffffff;\r\n}\r\n\r\n.custom-checkbox-label-blue {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #17a2b8;\r\n}\r\n\r\n.form-select {\r\n  min-width: 130px; /* Ensure the select has a minimum width */\r\n  max-width: 100%; /* It can grow if needed */\r\n}\r\n\r\n/* Ensures that the full cell gets highlighted */\r\n.table-hover tbody tr:hover td {\r\n  background-color: rgba(255, 255, 255, 0.1) !important;\r\n}\r\n\r\n/* Remove any extra padding or margin for consistent cell size */\r\ntd {\r\n  padding: 0 !important; /* Remove padding to avoid unhighlighted areas */\r\n}\r\n\r\n/* Make the content inside each td align properly */\r\n.table-responsive td > div {\r\n  padding: 10px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  height: 100%; /* Ensures that the content takes full height */\r\n}\r\n\r\n/* Center text in all table columns except the last one */\r\n.table td {\r\n  text-align: center;\r\n}\r\n\r\n/* Override for the last column */\r\n.table td:last-child {\r\n  text-align: left;\r\n}\r\n\r\n/* ChallengeTable.css */\r\n.table {\r\n  table-layout: fixed; /* Ensure columns follow the fixed width */\r\n}\r\n\r\n.star-column {\r\n  width: 64px; /* Fixed width for stars column to fit 3 stars max */\r\n  text-align: center; /* Center-align stars */\r\n}\r\n\r\n.star-icon {\r\n  fill: #fcba03; /* Keep the yellow color for stars */\r\n}\r\n\r\n.star-column-header {\r\n  white-space: normal; /* Allow text to wrap */\r\n  word-wrap: break-word; /* Ensure long words break */\r\n  text-align: center; /* Center-align the text */\r\n}\r\n"],"sourceRoot":""}]);
+
+.mobile-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  top: 100%; /* Position below the number */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+`, "",{"version":3,"sources":["webpack://./src/components/ChallengeTable.css"],"names":[],"mappings":"AAAA,kCAAkC;AAClC;EACE,gBAAgB,EAAE,sCAAsC;EACxD,iBAAiB;AACnB;;AAEA,0CAA0C;AAC1C;EACE,gBAAgB,EAAE,8CAA8C;EAChE,WAAW,EAAE,oDAAoD;AACnE;;AAEA,WAAW;AACX;EACE,sBAAsB;EACtB,MAAM;EACN,WAAW,EAAE,gDAAgD;EAC7D,yBAAyB,EAAE,mCAAmC;EAC9D,YAAY,EAAE,8BAA8B;AAC9C;;AAEA,mBAAmB;AACnB;EACE,iBAAiB;EACjB,gBAAgB,EAAE,2CAA2C;AAC/D;;AAEA,uBAAuB;AACvB;EACE,oCAAoC,EAAE,yBAAyB;EAC/D,yBAAyB,EAAE,0BAA0B;EACrD,iBAAiB,EAAE,6DAA6D;AAClF;;AAEA;EACE,gBAAgB;EAChB,MAAM;EACN,aAAa,EAAE,sCAAsC;EACrD,yBAAyB;EACzB,aAAa;AACf;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,qBAAqB,EAAE,2CAA2C;AACpE;AACA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,kBAAkB,EAAE,+BAA+B;EACnD,cAAc;AAChB;;AAEA;EACE,gBAAgB,EAAE,0CAA0C;EAC5D,eAAe,EAAE,0BAA0B;AAC7C;;AAEA,gDAAgD;AAChD;EACE,qDAAqD;AACvD;;AAEA,gEAAgE;AAChE;EACE,qBAAqB,EAAE,gDAAgD;AACzE;;AAEA,mDAAmD;AACnD;EACE,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,8BAA8B;EAC9B,YAAY,EAAE,+CAA+C;AAC/D;;AAEA,yDAAyD;AACzD;EACE,kBAAkB;AACpB;;AAEA,iCAAiC;AACjC;EACE,gBAAgB;AAClB;;AAEA,uBAAuB;AACvB;EACE,mBAAmB,EAAE,0CAA0C;AACjE;;AAEA;EACE,WAAW,EAAE,oDAAoD;EACjE,kBAAkB,EAAE,uBAAuB;AAC7C;;AAEA;EACE,aAAa,EAAE,oCAAoC;AACrD;;AAEA;EACE,mBAAmB,EAAE,uBAAuB;EAC5C,qBAAqB,EAAE,4BAA4B;EACnD,kBAAkB,EAAE,0BAA0B;AAChD;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;EAC/B,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,SAAS,EAAE,8BAA8B;EACzC,SAAS;EACT,2BAA2B;EAC3B,WAAW;AACb","sourcesContent":["/* Mutator name should be larger */\r\n.mutator-name {\r\n  font-size: 1.2em; /* Larger font size for mutator name */\r\n  font-weight: bold;\r\n}\r\n\r\n/* Mutator description should be smaller */\r\n.mutator-description {\r\n  font-size: 0.9em; /* Smaller font size for mutator description */\r\n  color: #bbb; /* Optional: make the description slightly lighter */\r\n}\r\n\r\n/* Header */\r\nthead th {\r\n  /* position: sticky; */\r\n  top: 0;\r\n  z-index: 10; /* Ensure the header stays above table content */\r\n  background-color: #343a40; /* Dark background for the header */\r\n  color: white; /* White text for visibility */\r\n}\r\n\r\n/* General styles */\r\n.bi {\r\n  margin-right: 2px;\r\n  font-size: 1.2em; /* Adjust the size of the stars if needed */\r\n}\r\n\r\n/* Dark mode for body */\r\nbody {\r\n  background-color: #121212 !important; /* Dark gray background */\r\n  color: #e0e0e0 !important; /* Light gray text color */\r\n  min-height: 100vh; /* Ensure the body takes up the full height of the viewport */\r\n}\r\n\r\n.search-bar-container {\r\n  position: sticky;\r\n  top: 0;\r\n  z-index: 1000; /* Ensures it's above other elements */\r\n  background-color: #212529;\r\n  padding: 10px;\r\n}\r\n\r\n.mutator-counters {\r\n  font-size: 0.9em;\r\n  font-style: bold;\r\n  color: #97dbad;\r\n}\r\n\r\n.custom-checkbox {\r\n  transform: scale(1.5); /* Adjust the scale for bigger checkboxes */\r\n}\r\n.custom-checkbox-label {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #97dbad;\r\n}\r\n\r\n.custom-checkbox-label-white {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #ffffff;\r\n}\r\n\r\n.custom-checkbox-label-blue {\r\n  font-size: 1.25rem; /* Make the label text bigger */\r\n  color: #17a2b8;\r\n}\r\n\r\n.form-select {\r\n  min-width: 130px; /* Ensure the select has a minimum width */\r\n  max-width: 100%; /* It can grow if needed */\r\n}\r\n\r\n/* Ensures that the full cell gets highlighted */\r\n.table-hover tbody tr:hover td {\r\n  background-color: rgba(255, 255, 255, 0.1) !important;\r\n}\r\n\r\n/* Remove any extra padding or margin for consistent cell size */\r\ntd {\r\n  padding: 0 !important; /* Remove padding to avoid unhighlighted areas */\r\n}\r\n\r\n/* Make the content inside each td align properly */\r\n.table-responsive td > div {\r\n  padding: 10px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  height: 100%; /* Ensures that the content takes full height */\r\n}\r\n\r\n/* Center text in all table columns except the last one */\r\n.table td {\r\n  text-align: center;\r\n}\r\n\r\n/* Override for the last column */\r\n.table td:last-child {\r\n  text-align: left;\r\n}\r\n\r\n/* ChallengeTable.css */\r\n.table {\r\n  table-layout: fixed; /* Ensure columns follow the fixed width */\r\n}\r\n\r\n.star-column {\r\n  width: 64px; /* Fixed width for stars column to fit 3 stars max */\r\n  text-align: center; /* Center-align stars */\r\n}\r\n\r\n.star-icon {\r\n  fill: #fcba03; /* Keep the yellow color for stars */\r\n}\r\n\r\n.star-column-header {\r\n  white-space: normal; /* Allow text to wrap */\r\n  word-wrap: break-word; /* Ensure long words break */\r\n  text-align: center; /* Center-align the text */\r\n}\r\n\r\n.mobile-tooltip {\r\n  position: absolute;\r\n  background: rgba(0, 0, 0, 0.75);\r\n  color: white;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  top: 100%; /* Position below the number */\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n  z-index: 10;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -53389,7 +53415,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[22,23,48,66,68,69]}
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("a5681b9b0535761bb87b")
+/******/ 		__webpack_require__.h = () => ("c7f8a45d0321af45ccc1")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
