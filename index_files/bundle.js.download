@@ -349,6 +349,29 @@ const ChallengeTable = () => {
       color: getColorForCount(count) // Text color
     })
   });
+
+  // Define the specific challenge numbers to be highlighted
+  const keyChallengeNumbers = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69];
+
+  // Helper function to determine the text color based on challenge number
+  const getTextColor = challengeNumber => {
+    const isKeyChallenge = keyChallengeNumbers.includes(challengeNumber);
+    const isHard = isHardChallenge(challengeNumber);
+    return isKeyChallenge && isHard ? "#ff00dd" // Purple if both key and hard challenge
+    : isHard ? "#d91414" // Red if hard challenge
+    : isKeyChallenge ? "#6e85ff" // Blue if key challenge
+    : "inherit"; // Default color for others
+  };
+
+  // Helper function to determine tooltip text based on challenge number
+  const getTooltipText = challengeNumber => {
+    const isKeyChallenge = keyChallengeNumbers.includes(challengeNumber);
+    const isHard = isHardChallenge(challengeNumber);
+    return isKeyChallenge && isHard ? "HARD KEY CHALLENGE" // Purple challenges
+    : isHard ? "HARD CHALLENGE" // Red challenges
+    : isKeyChallenge ? "KEY CHALLENGE" // Blue challenges
+    : ""; // Default for others
+  };
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
     className: "container bg-dark text-light mt-5 p-4",
     style: {
@@ -364,7 +387,7 @@ const ChallengeTable = () => {
         `
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 275,
+      lineNumber: 309,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("a", {
       href: "https://www.reddit.com/user/PiFbg",
@@ -379,7 +402,7 @@ const ChallengeTable = () => {
       children: "Created by u/PiFbg"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 286,
+      lineNumber: 320,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("a", {
       href: "https://www.buymeacoffee.com/pifbg",
@@ -396,14 +419,14 @@ const ChallengeTable = () => {
       children: "Buy me a coffee"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 301,
+      lineNumber: 335,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("h2", {
       className: "mb-4 text-center text-light",
       children: "PiF's Monthly Challenges Assistant | November 2024"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 322,
+      lineNumber: 356,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "mb-4 d-flex justify-content-end",
@@ -416,19 +439,19 @@ const ChallengeTable = () => {
           onChange: () => setShowCounters(!showCounters)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 329,
+          lineNumber: 363,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label",
           children: "Suggestions"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 335,
+          lineNumber: 369,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 328,
+        lineNumber: 362,
         columnNumber: 9
       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
         className: "form-check form-switch d-inline-flex align-items-center ms-4",
@@ -439,19 +462,19 @@ const ChallengeTable = () => {
           onChange: () => setShowTips(!showTips)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 342,
+          lineNumber: 376,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label-blue",
           children: "Info | Notes"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 348,
+          lineNumber: 382,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 341,
+        lineNumber: 375,
         columnNumber: 9
       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
         className: "form-check form-switch d-inline-flex align-items-center ms-4",
@@ -462,24 +485,24 @@ const ChallengeTable = () => {
           onChange: () => setShowChampNumber(!showChampNumber)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 355,
+          lineNumber: 389,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("label", {
           className: "form-check-label ms-3 custom-checkbox-label-white",
           children: "Champion Uses"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 361,
+          lineNumber: 395,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 354,
+        lineNumber: 388,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 327,
+      lineNumber: 361,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "search-bar-container mb-4",
@@ -490,12 +513,12 @@ const ChallengeTable = () => {
         onChange: handleSearch // Updated to use handleSearch
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 369,
+        lineNumber: 403,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 368,
+      lineNumber: 402,
       columnNumber: 7
     }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "table-responsive",
@@ -517,56 +540,56 @@ const ChallengeTable = () => {
               children: ["# ", isReversed ? "▼" : "▲"]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 384,
+              lineNumber: 418,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center star-column",
               children: "Stars"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 391,
+              lineNumber: 425,
               columnNumber: 15
             }, undefined), " ", /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mid-Boss"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 393,
+              lineNumber: 427,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Final Boss"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 394,
+              lineNumber: 428,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 1"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 395,
+              lineNumber: 429,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 2"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 396,
+              lineNumber: 430,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 3"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 397,
+              lineNumber: 431,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
               children: "Mutator 4"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 398,
+              lineNumber: 432,
               columnNumber: 15
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
               className: "text-center",
@@ -586,7 +609,7 @@ const ChallengeTable = () => {
                   children: "Clear Picks"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 408,
+                  lineNumber: 442,
                   columnNumber: 19
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
                   style: {
@@ -599,7 +622,7 @@ const ChallengeTable = () => {
                     children: "My Champion"
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 423,
+                    lineNumber: 457,
                     columnNumber: 21
                   }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("button", {
                     className: "btn btn-sm btn-dark",
@@ -621,86 +644,87 @@ const ChallengeTable = () => {
                         d: "M.5 9.9a.5.5 0 0 1 .5.5V13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.6a.5.5 0 0 1 1 0V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.6a.5.5 0 0 1 .5-.5z"
                       }, void 0, false, {
                         fileName: _jsxFileName,
-                        lineNumber: 440,
+                        lineNumber: 474,
                         columnNumber: 25
                       }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                         d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
                       }, void 0, false, {
                         fileName: _jsxFileName,
-                        lineNumber: 441,
+                        lineNumber: 475,
                         columnNumber: 25
                       }, undefined)]
                     }, void 0, true, {
                       fileName: _jsxFileName,
-                      lineNumber: 432,
+                      lineNumber: 466,
                       columnNumber: 23
                     }, undefined)
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 426,
+                    lineNumber: 460,
                     columnNumber: 21
                   }, undefined)]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 416,
+                  lineNumber: 450,
                   columnNumber: 19
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 400,
+                lineNumber: 434,
                 columnNumber: 17
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 399,
+              lineNumber: 433,
               columnNumber: 15
             }, undefined)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 383,
+            lineNumber: 417,
             columnNumber: 13
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 382,
+          lineNumber: 416,
           columnNumber: 11
         }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tbody", {
           children: filteredChallenges.map((challenge, index) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               className: "text-center",
-              title: isHardChallenge(challenge.number) ? "HARD CHALLENGE" : "",
+              title: getTooltipText(challenge.number) // Apply tooltip
+              ,
               children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                 style: {
-                  color: isHardChallenge(challenge.number) ? "#d91414" : "inherit"
+                  color: getTextColor(challenge.number)
                 },
                 children: challenge.number
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 458,
+                lineNumber: 490,
                 columnNumber: 19
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 452,
+              lineNumber: 486,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               className: "star-column",
               children: renderStars(challenge.difficulty)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 468,
+              lineNumber: 494,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: challenge.midBoss && challenge.midBoss.name ? challenge.midBoss.name : ""
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 471,
+              lineNumber: 497,
               columnNumber: 17
             }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: challenge.boss ? challenge.boss.name : ""
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 476,
+              lineNumber: 502,
               columnNumber: 17
             }, undefined), challenge.mutators.map((mutator, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               children: [showTips && mutator.notes && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("svg", {
@@ -718,28 +742,28 @@ const ChallengeTable = () => {
                   children: [mutator.notes, " "]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 492,
+                  lineNumber: 518,
                   columnNumber: 25
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                   d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 493,
+                  lineNumber: 519,
                   columnNumber: 25
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("path", {
                   d: "m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 494,
+                  lineNumber: 520,
                   columnNumber: 25
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 480,
+                lineNumber: 506,
                 columnNumber: 23
               }, undefined), showTips && mutator.notes && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 498,
+                lineNumber: 524,
                 columnNumber: 51
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("strong", {
                 className: "mutator-name",
@@ -750,40 +774,40 @@ const ChallengeTable = () => {
                 children: mutator.name
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 499,
+                lineNumber: 525,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 506,
+                lineNumber: 532,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                 className: "mutator-description",
                 children: mutator.description
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 507,
+                lineNumber: 533,
                 columnNumber: 21
               }, undefined), showCounters && mutator.counters && mutator.counters.length > 0 && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                 children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 514,
+                  lineNumber: 540,
                   columnNumber: 27
                 }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("span", {
                   className: "mutator-counters",
                   children: ["[ ", mutator.counters.join(", "), " ]"]
                 }, void 0, true, {
                   fileName: _jsxFileName,
-                  lineNumber: 515,
+                  lineNumber: 541,
                   columnNumber: 27
                 }, undefined)]
               }, void 0, true)]
             }, idx, true, {
               fileName: _jsxFileName,
-              lineNumber: 478,
+              lineNumber: 504,
               columnNumber: 19
             }, undefined)), [...Array(4 - challenge.mutators.length)].map((_, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {}, `empty-${idx}`, false, {
               fileName: _jsxFileName,
-              lineNumber: 523,
+              lineNumber: 549,
               columnNumber: 19
             }, undefined)), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
               style: {
@@ -818,12 +842,12 @@ const ChallengeTable = () => {
                     })
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 536,
+                    lineNumber: 562,
                     columnNumber: 23
                   }, undefined)
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 535,
+                  lineNumber: 561,
                   columnNumber: 21
                 }, undefined), showChampNumber && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
                   style: {
@@ -835,37 +859,37 @@ const ChallengeTable = () => {
                   children: champions[challenge.number] && championCounts[champions[challenge.number]] ? championCounts[champions[challenge.number]] : 0
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 564,
+                  lineNumber: 590,
                   columnNumber: 23
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 526,
+                lineNumber: 552,
                 columnNumber: 19
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 525,
+              lineNumber: 551,
               columnNumber: 17
             }, undefined)]
           }, index, true, {
             fileName: _jsxFileName,
-            lineNumber: 451,
+            lineNumber: 485,
             columnNumber: 15
           }, undefined))
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 449,
+          lineNumber: 483,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 378,
+        lineNumber: 412,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 377,
+      lineNumber: 411,
       columnNumber: 7
     }, undefined), notification && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
       className: "alert alert-success" // Keep the Bootstrap alert class for the same style
@@ -879,12 +903,12 @@ const ChallengeTable = () => {
       children: notification
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 589,
+      lineNumber: 615,
       columnNumber: 9
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 271,
+    lineNumber: 305,
     columnNumber: 5
   }, undefined);
 };
@@ -53257,7 +53281,7 @@ module.exports = /*#__PURE__*/JSON.parse('[{"value":"","label":" - "},{"value":"
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[22,23,48,66,68]}');
+module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[22,23,48,66,68,69]}');
 
 /***/ })
 
@@ -53365,7 +53389,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"hardChallenges":[22,23,48,66,68]}');
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("23d3d3cf86bddafce031")
+/******/ 		__webpack_require__.h = () => ("a5681b9b0535761bb87b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
